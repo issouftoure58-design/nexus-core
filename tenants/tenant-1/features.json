@@ -1,0 +1,63 @@
+{
+  "version": "1.0.0",
+  "lastUpdate": "2026-01-31T00:00:00Z",
+
+  "core": {
+    "reservations": true,
+    "reservations_web": true,
+    "reservations_telephone": true,
+    "reservations_chat": true,
+    "reservations_whatsapp": true,
+    "reservations_admin": true,
+    "services_variables": true,
+    "services_domicile": true
+  },
+
+  "notifications": {
+    "sms_confirmation": true,
+    "sms_rappel_j1": true,
+    "sms_remerciement": true,
+    "email_notifications": false,
+    "push_notifications": false
+  },
+
+  "ai": {
+    "assistant_telephone": true,
+    "assistant_chat": true,
+    "assistant_whatsapp": false,
+    "voice_synthesis": true,
+    "sentiment_analysis": false
+  },
+
+  "admin": {
+    "dashboard": true,
+    "dashboard_stats": true,
+    "multi_users": false,
+    "roles_permissions": false
+  },
+
+  "modules": {
+    "accounting": false,
+    "commerce_catalogue": false,
+    "commerce_stock": false,
+    "commerce_ventes": false,
+    "marketing": false,
+    "marketing_campaigns": false,
+    "marketing_social": false,
+    "seo": false,
+    "seo_analysis": false,
+    "seo_recommendations": false,
+    "rh": false,
+    "rh_employees": false,
+    "rh_planning": false,
+    "rh_payroll": false,
+    "sentinel_client": false
+  },
+
+  "integrations": {
+    "google_calendar": false,
+    "stripe": false,
+    "mailchimp": false,
+    "zapier": false
+  }
+}

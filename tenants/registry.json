@@ -1,0 +1,60 @@
+{
+  "version": "1.0.0",
+  "lastUpdate": "2026-02-01T00:00:00Z",
+  "platform": {
+    "name": "NEXUS",
+    "version": "1.0.0",
+    "environment": "production"
+  },
+  "tenants": [
+    {
+      "id": 1,
+      "slug": "fatshairafro",
+      "name": "Fat's Hair-Afro",
+      "status": "active",
+      "tier": "starter",
+      "version": "1.0.0",
+      "frozen": true,
+      "created": "2026-01-15T00:00:00Z",
+      "migrated": false,
+      "owner": {
+        "name": "Fatou",
+        "email": "contact@fatshairafro.fr",
+        "phone": "+33939240269"
+      },
+      "technical": {
+        "database": "tenant_1_fatshairafro",
+        "domain": "fatshairafro.fr",
+        "region": "eu-west-1"
+      },
+      "billing": {
+        "plan": "starter",
+        "amount": 99,
+        "currency": "EUR",
+        "interval": "monthly"
+      }
+    },
+    {
+      "id": 2,
+      "slug": "decoevent",
+      "name": "Deco Event",
+      "status": "pending",
+      "tier": "pro",
+      "version": "1.0.0",
+      "frozen": false,
+      "created": null,
+      "migrated": false,
+      "technical": {
+        "database": "tenant_2_decoevent",
+        "domain": "decoevent.fr",
+        "region": "eu-west-1"
+      }
+    }
+  ],
+  "stats": {
+    "totalTenants": 2,
+    "activeTenants": 1,
+    "pendingTenants": 1,
+    "migratedTenants": 0
+  }
+}

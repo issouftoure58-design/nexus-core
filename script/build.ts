@@ -1,0 +1,116 @@
+import { build as esbuild } from "esbuild";
+import { build as viteBuild } from "vite";
+import { rm, readFile } from "fs/promises";
+
+// server deps to bundle to reduce openat(2) syscalls
+// which helps cold start times
+const allowlist = [
+  "@google/generative-ai",
+  "axios",
+  "connect-pg-simple",
+  "cors",
+  "date-fns",
+  "drizzle-orm",
+  "drizzle-zod",
+  "express",
+  "express-rate-limit",
+  "express-session",
+  "jsonwebtoken",
+  "memorystore",
+  "multer",
+  "nanoid",
+  "nodemailer",
+  "openai",
+  "passport",
+  "passport-local",
+  "pg",
+  "stripe",
+  "uuid",
+  "ws",
+  "xlsx",
+  "zod",
+  "zod-validation-error",
+];
+
+async function buildAll() {
+  console.log("[BUILD] Starting build process...");
+  console.log("[BUILD] CWD:", process.cwd());
+
+  await rm("dist", { recursive: true, force: true });
+  console.log("[BUILD] Cleared dist directory");
+
+  console.log("[BUILD] Building client (Vite)...");
+  const path = await import("path");
+  const fs = await import("fs");
+
+  // Chemin absolu du config Vite
+  const viteConfigPath = path.resolve(process.cwd(), "vite.config.ts");
+  console.log("[BUILD] Vite config path:", viteConfigPath);
+
+  try {
+    await viteBuild({
+      configFile: viteConfigPath,
+      root: path.resolve(process.cwd(), "client"),
+      build: {
+        outDir: path.resolve(process.cwd(), "dist/public"),
+        emptyOutDir: true,
+      },
+    });
+    console.log("[BUILD] Vite build completed");
+  } catch (error) {
+    console.error("[BUILD] Vite build FAILED:", error);
+    throw error;
+  }
+
+  // Vérifier que le build client a fonctionné
+  const publicDir = path.resolve(process.cwd(), "dist/public");
+  console.log("[BUILD] Checking:", publicDir);
+
+  if (fs.existsSync(publicDir)) {
+    const files = fs.readdirSync(publicDir);
+    console.log("[BUILD] dist/public contents:", files.length, "files");
+    console.log("[BUILD] Files:", files.slice(0, 10).join(", "));
+  } else {
+    console.error("[BUILD] WARNING: dist/public does NOT exist!");
+
+    // Chercher où Vite a mis les fichiers
+    const distDir = path.resolve(process.cwd(), "dist");
+    if (fs.existsSync(distDir)) {
+      console.log("[BUILD] dist/ contents:", fs.readdirSync(distDir).join(", "));
+    }
+    const clientDir = path.resolve(process.cwd(), "client/dist");
+    if (fs.existsSync(clientDir)) {
+      console.log("[BUILD] client/dist exists! Copying to dist/public...");
+      // Copier client/dist vers dist/public
+      fs.cpSync(clientDir, publicDir, { recursive: true });
+      console.log("[BUILD] Copied client/dist to dist/public");
+    }
+  }
+
+  console.log("building server...");
+  const pkg = JSON.parse(await readFile("package.json", "utf-8"));
+  const allDeps = [
+    ...Object.keys(pkg.dependencies || {}),
+    ...Object.keys(pkg.devDependencies || {}),
+  ];
+  const externals = allDeps.filter((dep) => !allowlist.includes(dep));
+
+  await esbuild({
+    entryPoints: ["server/index.ts"],
+    platform: "node",
+    bundle: true,
+    format: "cjs",
+    outfile: "dist/server/index.cjs",
+    define: {
+      "process.env.NODE_ENV": '"production"',
+    },
+    minify: true,
+    external: externals,
+    logLevel: "info",
+  });
+}
+
+buildAll().catch((err) => {
+  console.error(err);
+  process.exit(1);
+});

@@ -1,0 +1,23 @@
+{
+  "name": "nexus-admin",
+  "version": "1.0.0",
+  "description": "NEXUS Platform Admin CLI",
+  "type": "module",
+  "bin": {
+    "nexus-admin": "./index.js"
+  },
+  "scripts": {
+    "link": "npm link",
+    "unlink": "npm unlink -g nexus-admin"
+  },
+  "dependencies": {
+    "commander": "^11.1.0",
+    "chalk": "^5.3.0",
+    "inquirer": "^9.2.12",
+    "ora": "^8.0.1",
+    "table": "^6.8.1"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}

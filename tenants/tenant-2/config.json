@@ -1,0 +1,27 @@
+{
+  "id": 2,
+  "slug": "decoevent",
+  "name": "Deco Event",
+  "businessType": "evenementiel",
+
+  "status": "pending",
+  "frozen": false,
+  "version": "1.0.0",
+  "created": null,
+
+  "technical": {
+    "database": {
+      "schema": "tenant_2_decoevent"
+    },
+    "domain": "decoevent.fr",
+    "region": "eu-west-1",
+    "timezone": "Europe/Paris"
+  },
+
+  "billing": {
+    "plan": "pro",
+    "amount": 199,
+    "currency": "EUR",
+    "interval": "monthly"
+  }
+}

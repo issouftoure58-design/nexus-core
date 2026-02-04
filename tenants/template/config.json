@@ -1,0 +1,32 @@
+{
+  "id": null,
+  "slug": null,
+  "name": null,
+  "businessType": null,
+
+  "status": "pending",
+  "frozen": false,
+  "version": "1.0.0",
+  "created": null,
+
+  "technical": {
+    "database": {
+      "schema": "tenant_${ID}_${SLUG}"
+    },
+    "region": "eu-west-1",
+    "timezone": "Europe/Paris"
+  },
+
+  "limits": {
+    "maxReservationsPerDay": 50,
+    "maxSMSPerMonth": 1000,
+    "maxAICallsPerDay": 200
+  },
+
+  "billing": {
+    "plan": "starter",
+    "amount": 99,
+    "currency": "EUR",
+    "interval": "monthly"
+  }
+}

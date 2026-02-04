@@ -1,0 +1,65 @@
+{
+  "id": 1,
+  "slug": "fatshairafro",
+  "name": "Fat's Hair-Afro",
+  "businessType": "salon_coiffure",
+
+  "status": "active",
+  "frozen": true,
+  "version": "1.0.0",
+  "created": "2026-01-15T00:00:00Z",
+
+  "owner": {
+    "name": "Fatou",
+    "email": "contact@fatshairafro.fr",
+    "phone": "+33939240269"
+  },
+
+  "technical": {
+    "database": {
+      "schema": "tenant_1_fatshairafro",
+      "url": "${SUPABASE_URL}",
+      "migrated": true,
+      "migrationDate": "2026-02-01"
+    },
+    "domain": "fatshairafro.fr",
+    "region": "eu-west-1",
+    "timezone": "Europe/Paris"
+  },
+
+  "resources": {
+    "cpu": "1 vCPU",
+    "memory": "2GB",
+    "storage": "20GB"
+  },
+
+  "limits": {
+    "maxReservationsPerDay": 20,
+    "maxSMSPerMonth": 500,
+    "maxAICallsPerDay": 100,
+    "maxUsers": 3,
+    "maxStorageGB": 20
+  },
+
+  "monitoring": {
+    "enabled": true,
+    "alertsEmail": "contact@fatshairafro.fr",
+    "uptimeTarget": 99.9,
+    "metrics": {
+      "reservations": true,
+      "sms": true,
+      "ai": true,
+      "errors": true
+    }
+  },
+
+  "billing": {
+    "plan": "starter",
+    "amount": 99,
+    "currency": "EUR",
+    "interval": "monthly",
+    "nextBilling": "2026-03-15",
+    "paymentMethod": "card",
+    "autoRenew": true
+  }
+}

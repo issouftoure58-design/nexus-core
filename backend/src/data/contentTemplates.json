@@ -1,0 +1,143 @@
+{
+  "templates": {
+    "avant-apres": {
+      "name": "Avant/Après",
+      "description": "Montrer une transformation coiffure",
+      "imagePrompt": "Split image showing hair transformation, before on left (natural/untreated hair), after on right (beautiful styled {service}), professional salon lighting, elegant presentation, African woman with beautiful hair",
+      "requiredData": ["service"],
+      "optionalData": ["photoBefore", "photoAfter", "duree", "details"],
+      "platforms": ["instagram", "facebook", "tiktok"]
+    },
+    "promo": {
+      "name": "Annonce Promo",
+      "description": "Promouvoir une offre spéciale",
+      "imagePrompt": "Elegant promotional banner for hair salon, featuring {service}, golden accents, African inspired design, sale badge showing {reduction}% off, luxury feel, warm colors",
+      "requiredData": ["service", "reduction"],
+      "optionalData": ["prixNormal", "prixPromo", "validite"],
+      "platforms": ["instagram", "facebook", "stories"]
+    },
+    "citation": {
+      "name": "Citation Inspirante",
+      "description": "Post motivationnel sur la beauté afro",
+      "imagePrompt": "Inspirational quote poster, elegant African woman silhouette with beautiful natural hair, warm colors (gold, burgundy, cream), typography art, empowering vibe, hair beauty theme",
+      "requiredData": [],
+      "optionalData": ["theme", "citation"],
+      "suggestedThemes": [
+        "Fierté capillaire",
+        "Beauté naturelle",
+        "Self-love",
+        "Heritage africain",
+        "Confiance en soi"
+      ],
+      "platforms": ["instagram", "facebook", "linkedin"]
+    },
+    "star-semaine": {
+      "name": "Star de la Semaine",
+      "description": "Mettre en avant un service populaire",
+      "imagePrompt": "Featured service spotlight, glamorous presentation of {service} hairstyle on African woman, star/crown visual elements, golden badge 'Star de la semaine', premium luxury aesthetic, warm lighting",
+      "requiredData": ["service"],
+      "optionalData": ["prix", "raison"],
+      "platforms": ["instagram", "facebook", "stories"]
+    },
+    "temoignage": {
+      "name": "Témoignage Client",
+      "description": "Partager un avis client",
+      "imagePrompt": "Customer testimonial design, elegant quote card, 5 stars rating visual, warm and trustworthy feel, African beauty theme, satisfied client vibe, soft gold accents",
+      "requiredData": ["prenom", "avis"],
+      "optionalData": ["service", "note"],
+      "platforms": ["instagram", "facebook", "linkedin"]
+    },
+    "conseil": {
+      "name": "Conseil Beauté",
+      "description": "Partager un conseil capillaire",
+      "imagePrompt": "Educational beauty tip graphic, African woman caring for natural hair, professional styling visual, clean modern design, warm inviting colors, hair care products aesthetic",
+      "requiredData": ["sujet"],
+      "optionalData": ["details"],
+      "platforms": ["instagram", "facebook", "tiktok", "linkedin"]
+    }
+  },
+  "hashtags": {
+    "base": [
+      "#coiffureafro",
+      "#afrohairstyles",
+      "#cheveuxafro",
+      "#coiffureadomicile",
+      "#FatsHairAfro",
+      "#beauteafro",
+      "#afrobeauty",
+      "#naturalhaircommunity"
+    ],
+    "locks": [
+      "#locks",
+      "#dreadlocks",
+      "#locstyles",
+      "#locsjourney",
+      "#locnation",
+      "#locmaintenance"
+    ],
+    "tresses": [
+      "#tresses",
+      "#braids",
+      "#boxbraids",
+      "#protectivestyles",
+      "#braidstyles",
+      "#cornrows",
+      "#knotlessbraids"
+    ],
+    "soins": [
+      "#soincapillaire",
+      "#haircare",
+      "#naturalhair",
+      "#healthyhair",
+      "#hairgrowth",
+      "#hydratation"
+    ],
+    "location": [
+      "#franconville",
+      "#valdoise",
+      "#iledefrance",
+      "#paris",
+      "#95",
+      "#coiffuseadomicile"
+    ]
+  },
+  "styles": {
+    "african": {
+      "name": "Africain Élégant",
+      "description": "Style africain luxueux avec motifs wax et couleurs chaudes",
+      "colors": ["or", "bordeaux", "crème", "brun"]
+    },
+    "modern": {
+      "name": "Moderne Épuré",
+      "description": "Style minimaliste et contemporain",
+      "colors": ["blanc", "noir", "or", "gris"]
+    },
+    "elegant": {
+      "name": "Haut de Gamme",
+      "description": "Style sophistiqué et premium",
+      "colors": ["noir", "or", "blanc", "bordeaux"]
+    },
+    "vibrant": {
+      "name": "Vibrant & Dynamique",
+      "description": "Couleurs vives pour un impact maximal",
+      "colors": ["orange", "rose", "violet", "turquoise"]
+    }
+  },
+  "formats": {
+    "square": {
+      "name": "Carré (1:1)",
+      "size": "1024x1024",
+      "usage": "Posts Instagram, Facebook"
+    },
+    "portrait": {
+      "name": "Portrait (9:16)",
+      "size": "1024x1792",
+      "usage": "Stories, Reels, TikTok"
+    },
+    "landscape": {
+      "name": "Paysage (16:9)",
+      "size": "1792x1024",
+      "usage": "Bannières, YouTube, LinkedIn"
+    }
+  }
+}
