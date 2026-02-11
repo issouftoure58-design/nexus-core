@@ -1,0 +1,42 @@
+# ============================================
+# NEXUS-BACKEND-DEV - WORKSPACE DEVELOPPEMENT
+# ============================================
+# Espace de travail principal pour le développement
+#
+# SERVICE RENDER:
+# - Nom: nexus-backend-dev
+# - URL: https://nexus-backend-dev.onrender.com
+# - ID: srv-d66e20juibrs73e5f8r0
+#
+# REPOSITORY GIT:
+# - Origin: https://github.com/Ostive/nexus-backend-dev
+#
+# STRUCTURE:
+# /backend/src/ - Code source principal
+#   /routes/     - Routes API (crm, stock, seo, rh, marketing...)
+#   /services/   - Services métier
+#   /controllers/ - Contrôleurs
+#   /middleware/ - Middlewares (auth, rateLimiter...)
+#   /config/     - Configuration (supabase, env, sentry...)
+#   /jobs/       - Jobs Bull/Redis
+#   /modules/    - Modules métier (AI, SEO...)
+#
+# AUTORISATIONS:
+# - Toutes modifications autorisées
+# - Tests et expérimentations
+# - Nouvelles fonctionnalités
+# - Refactoring
+#
+# WORKFLOW:
+# 1. Développer ici
+# 2. Tester sur https://nexus-backend-dev.onrender.com
+# 3. Valider avant migration vers production
+#
+# ============================================
+project_type: DEVELOPMENT
+allow_modifications: true
+production_reference: /Users/hobb/Documents/halimah-project
+render_service: nexus-backend-dev
+render_service_id: srv-d66e20juibrs73e5f8r0
+render_url: https://nexus-backend-dev.onrender.com
+github_repo: https://github.com/Ostive/nexus-backend-dev
