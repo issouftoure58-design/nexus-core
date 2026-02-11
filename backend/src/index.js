@@ -36,6 +36,7 @@ import seoRoutes from './routes/seo.js';
 import rhRoutes from './routes/rh.js';
 import apiPublicRoutes from './routes/api-public.js';
 import brandingRoutes from './routes/branding.js';
+import sentinelRoutes from './routes/sentinel.js';
 
 // Import du middleware tenant resolution
 import { resolveTenantByDomain } from './middleware/resolveTenant.js';
@@ -177,6 +178,9 @@ app.use('/api/v1', apiPublicRoutes);
 
 // Routes Branding & White-Label
 app.use('/api/branding', brandingRoutes);
+
+// Routes SENTINEL Analytics (Business plan)
+app.use('/api/sentinel', sentinelRoutes);
 
 // Route 404
 app.use((req, res) => {
@@ -364,6 +368,17 @@ app.listen(PORT, '0.0.0.0', () => {
   console.log('  GET  /api/branding/theme.css             - CSS dynamique');
   console.log('  GET  /api/branding/pages                 - Pages custom');
   console.log('  POST /api/branding/pages                 - Créer page');
+  console.log('');
+  console.log('📊 SENTINEL Analytics (Business):');
+  console.log('  GET  /api/sentinel/dashboard             - Dashboard principal');
+  console.log('  POST /api/sentinel/refresh               - Rafraîchir données');
+  console.log('  GET  /api/sentinel/activity/:period      - Activité détaillée');
+  console.log('  GET  /api/sentinel/costs/:period         - Coûts détaillés');
+  console.log('  GET  /api/sentinel/insights              - Insights actifs');
+  console.log('  POST /api/sentinel/insights/generate     - Générer insights IA');
+  console.log('  POST /api/sentinel/insights/ask          - Demander conseil IA');
+  console.log('  GET  /api/sentinel/goals                 - Objectifs');
+  console.log('  PUT  /api/sentinel/goals                 - Modifier objectifs');
   console.log('');
 
   // Démarrer le scheduler de jobs
